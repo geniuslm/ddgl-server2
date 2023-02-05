@@ -91,11 +91,17 @@ export class C客户端接口的控制类 {
     return this.服务功能.CF创建镜片(数据);
   }
 
+  //测试
   @SubscribeMessage('测试')
-  测试(@MessageBody() 数据: 镜片类) {
-    return this.服务功能.CF镜片数据();
-  }
-
-
+  测试(@MessageBody() 操作: string ,@MessageBody() 数据: any) {return this.服务功能.测试(操作,数据);}
+  //订单
+  @SubscribeMessage('订单')
+  订单(@MessageBody() 操作: string ,@MessageBody() 数据: any) {return this.服务功能.订单(操作,数据);}
+  //镜片
+  @SubscribeMessage('镜片')
+  镜片(@MessageBody() 操作: string ,@MessageBody() 数据: any) {return this.服务功能.镜片(操作,数据);}
+  //用户
+  @SubscribeMessage('用户')
+  用户(@MessageBody() 操作: string ,@MessageBody() 数据: any) {return this.服务功能.用户(操作,数据);}
   
 }

@@ -150,6 +150,47 @@ export class C客户端接口的方法类 {
     await new this.镜片集合控制(镜片).save();
     return `${镜片.镜片名}已经添加到数据库`;
   }
+//测试
+  public async 测试(操作:any,数据:any) {
+    switch(操作){
+      case "增":{ await new this.镜片集合控制(数据).save(); break}
+      case "删":{ await this.镜片集合控制.deleteOne({_id:数据._id}); break}
+      case "改":{ await this.镜片集合控制.updateOne({_id:数据._id}, {$set: 数据}, { upsert: true }); break}
+      case "查":{ await this.镜片集合控制.find({_id:数据._id }); break}
+    }
+    return `${数据.镜片名}已${操作}`;
+  }
+//订单
+  public async 订单(操作:any,数据:any) {
+    switch(操作){
+      case "增":{ await new this.订单集合控制(数据).save(); break}
+      case "删":{ await this.订单集合控制.deleteOne({_id:数据._id}); break}
+      case "改":{ await this.订单集合控制.updateOne({_id:数据._id}, {$set: 数据}, { upsert: true }); break}
+      case "查":{ await this.订单集合控制.find({_id:数据._id }); break}
+    }
+    return `${数据.镜片名}已${操作}`;
+  }
+//镜片
+  public async 镜片(操作:any,数据:any) {
+    switch(操作){
+      case "增":{ await new this.镜片集合控制(数据).save(); break}
+      case "删":{ await this.镜片集合控制.deleteOne({_id:数据._id}); break}
+      case "改":{ await this.镜片集合控制.updateOne({_id:数据._id}, {$set: 数据}, { upsert: true }); break}
+      case "查":{ await this.镜片集合控制.find({_id:数据._id }); break}
+    }
+    return `${数据.镜片名}已${操作}`;
+  }
+//订单
+  public async 用户(操作:any,数据:any) {
+    switch(操作){
+      case "增":{ await new this.用户集合控制(数据).save(); break}
+      case "删":{ await this.用户集合控制.deleteOne({_id:数据._id}); break}
+      case "改":{ await this.用户集合控制.updateOne({_id:数据._id}, {$set: 数据}, { upsert: true }); break}
+      case "查":{ await this.用户集合控制.find({_id:数据._id }); break}
+    }
+    return `${数据.镜片名}已${操作}`;
+  }
+
 
 }
 
