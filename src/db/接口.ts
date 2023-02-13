@@ -28,28 +28,39 @@ export const 用户Schema = SchemaFactory.createForClass(用户类);  // 用一�
 export class 订单类 extends Document {       // 定义数据模型 之后通过这个class建立对象
     @Prop() 订单号  : string;
     @Prop() 删除信息 : string;
-    @Prop() 年    : string;
-    @Prop() 月    : string;
-    @Prop() 日    : string;
-    @Prop() 镜片下单日: string;
+
     @Prop() 收件人 : string;
-    
     @Prop() 旺旺名: string;
     @Prop() 镜片: string;
+
     @Prop() 右近视: string;
     @Prop() 右散光: string;
     @Prop() 右轴向: string;
+    @Prop() 右瞳距: string;
+
     @Prop() 左近视: string;
     @Prop() 左散光: string;
     @Prop() 左轴向: string;
-    @Prop() 瞳距: string;
+    @Prop() 左瞳距: string;
     @Prop() 备注: string;
+
+    @Prop() 镜片下单日: string;
+    @Prop() 镜片订货日: string;
+    @Prop() 镜片备好日: string;
+
+    @Prop() 镜框选项   : string;
+    @Prop() 镜框运单号   : string;
+    @Prop() 镜框下单日: string;
+    @Prop() 镜框发货日: string;
+    @Prop() 镜框备好日: string;
+    @Prop() 订单进度: string;
 
     @Prop() 镜片利润: number;
     @Prop() 镜框利润: number;
     @Prop() 优惠: number;
     @Prop() 总利润: number;
 
+    @Prop({ type: [String] })试戴镜框: string[];
     @Prop({
         订单号: String,
         删除信息: String,
@@ -91,33 +102,3 @@ export class 镜片类 extends Document {       // 定义数据模型 之后通�
 
 }
 export const 镜片Schema = SchemaFactory.createForClass(镜片类);  // 用一个订单类 创建一个Schema对象
-
-// export const 订单Schema2 = new 模式({
-//     订单号  : String,
-//     删除信息 : String,
-//     年    : String,
-//     月    : String,
-//     日    : String,
-//     镜片下单日: String,
-//     收件人  : String,
-//     旺旺名  : String,
-//     镜片   : String,
-//     右近视  : String,
-//     右散光  : String,
-//     右轴向  : String,
-//     左近视  : String,
-//     左散光  : String,
-//     左轴向  : String,
-//     瞳距   : String,
-//     备注   : String,
-//     对象: {
-//         订单号  : String,
-//         删除信息 : String,
-//         年    : String,
-//         月    : String,
-//         日    : String,
-//         镜片下单日: String,
-//         收件人  : String,
-//     },
-
-// });
