@@ -19,15 +19,15 @@ export class 功能 {
   //测试
   public async 测试(操作: string, 数据: any) {
     if (操作 == "增") { await new this.订单集合控制(数据).save(); 日志("测试增" + 数据); return await this.订单集合控制.find() }
-    if (操作 == "删") { await this.订单集合控制.deleteOne({ _id: 数据._id }); 日志("测试删"+数据); return await this.订单集合控制.find() }
-    if (操作 == "改") { await this.订单集合控制.updateOne({ _id: 数据._id }, { $set: 数据 }); 日志("测试改"+数据); return await this.订单集合控制.find() }
+    if (操作 == "删") { await this.订单集合控制.deleteOne({ _id: 数据._id }); 日志("测试删" + 数据); return await this.订单集合控制.find() }
+    if (操作 == "改") { await this.订单集合控制.updateOne({ _id: 数据._id }, { $set: 数据 }); 日志("测试改" + 数据); return await this.订单集合控制.find() }
     if (操作 == "查") { return await this.订单集合控制.find({ _id: 数据._id }) }
     if (操作 == "获") { return await this.订单集合控制.find() }
     else return '未定义操作'
   }
   //订单
   public async 订单(操作: any, 数据: any) {
-    if (操作 == "增") { await new this.订单集合控制(数据).save(); 日志("订单增:"+数据.订单号); return await this.订单集合控制.find() }
+    if (操作 == "增") { await new this.订单集合控制(数据).save(); 日志("订单增:" + 数据.订单号); return await this.订单集合控制.find() }
     if (操作 == "删") { await this.订单集合控制.deleteOne({ _id: 数据._id }); 日志("订单删" + 数据.订单号); return await this.订单集合控制.find() }
     if (操作 == "改") { await this.订单集合控制.updateOne({ _id: 数据._id }, { $set: 数据 }); 日志("订单改" + 数据.订单号); return await this.订单集合控制.find() }
     if (操作 == "获") { return await this.订单集合控制.find() }
@@ -43,37 +43,18 @@ export class 功能 {
   }
   //用户
   public async 用户(操作: any, 数据: any) {
-    if (操作 == "增") { await new this.用户集合控制(数据).save(); 日志("用户增"+数据.用户名 ); return await this.用户集合控制.find() }
+    if (操作 == "增") { await new this.用户集合控制(数据).save(); 日志("用户增" + 数据.用户名); return await this.用户集合控制.find() }
     if (操作 == "删") { await this.用户集合控制.deleteOne({ _id: 数据._id }); 日志("用户删" + 数据._id); return await this.用户集合控制.find() }
     if (操作 == "改") { await this.用户集合控制.updateOne({ _id: 数据._id }, { $set: 数据 }); 日志("用户改" + 数据.用户名); return await this.用户集合控制.find() }
     if (操作 == "获") { return await this.用户集合控制.find() }
     else return '未定义操作'
   }
-
-
-
-
-}
-
-@Injectable()                  // 可以在这里添加其他的服务
-export class 用户Service {
-  constructor(@InjectModel('M用户控制模块') private userModel: Model<用户类>) { } // 创建一个Model对象，用于操作数据库
-
-  // 查询所有用户
-  public async regist(user: 用户类) {
-    return this.userModel.find({ name: user.用户名 })
-      .then(res => {
-        if (res.length > 0) {
-          日志('用户已存在');
-          //日志(res);
-          日志(res.length);
-
-        }
-        else {
-          const createUser = new this.userModel(user);
-          return createUser.save();
-        }
-      })
+  //登录验证
+  public async 登录验证(数据: any) {
+    let 查询结果 = await this.用户集合控制.find({ 用户名: 数据.用户名 })
+    if (查询结果.length == 0) return '用户名不存在'
+    if (查询结果[0].密码 == 数据.密码) return '登录成功'
+    else return '密码错误'
   }
-
 }
+
