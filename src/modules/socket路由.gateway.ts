@@ -1,8 +1,8 @@
 import { WebSocketGateway, SubscribeMessage, MessageBody, ConnectedSocket } from '@nestjs/websockets';
-import {  功能 } from './socket方法.service';
+import { 功能 } from './socket方法.service';
 import { Logger } from '@nestjs/common';
 import { Socket } from 'socket.io';
-import { 用户类,订单类,镜片类 } from 'src/db/接口';
+import { 用户类, 订单类, 镜片类 } from 'src/db/接口';
 import { AnyAaaaRecord } from 'dns';
 import { 日志 } from 'src/main';
 
@@ -23,18 +23,21 @@ export class C客户端接口的控制类 {
 
   //测试
   @SubscribeMessage('测试')
-  测试(@MessageBody() 数据: any) {return this.功能.测试(数据[0],数据[1]);}
+  测试(@MessageBody() 数据: any) { return this.功能.测试(数据[0], 数据[1]); }
   //订单
   @SubscribeMessage('订单')
-  订单(@MessageBody() 数据: any) {return this.功能.订单(数据[0],数据[1]);}
+  订单(@MessageBody() 数据: any) { return this.功能.订单(数据[0], 数据[1]); }
   //镜片
   @SubscribeMessage('镜片')
-  镜片(@MessageBody() 数据: any) {return this.功能.镜片(数据[0],数据[1]);}
+  镜片(@MessageBody() 数据: any) { return this.功能.镜片(数据[0], 数据[1]); }
   //用户
   @SubscribeMessage('用户')
-  用户(@MessageBody() 数据: any) {return this.功能.用户(数据[0],数据[1]);}
+  用户(@MessageBody() 数据: any) { return this.功能.用户(数据[0], 数据[1]); }
   //登录
   @SubscribeMessage('登录验证')
-  登录(@MessageBody() 数据: any) {return this.功能.登录验证(数据);}
+  登录(@MessageBody() 数据: any) { return this.功能.登录验证(数据); }
+
+
   
 }
+
