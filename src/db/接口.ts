@@ -61,6 +61,8 @@ export class 订单类 extends Document {       // 定义数据模型 之后通�
     @Prop() 总利润: number;
 
     @Prop({ type: [String] })试戴镜框: string[];
+    @Prop({ type: [String] })编辑记录: string[];
+    @Prop({ type: [String] })购买记录: string[];
     @Prop({
         订单号: String,
         删除信息: String,

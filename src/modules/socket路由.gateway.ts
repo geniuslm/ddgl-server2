@@ -36,8 +36,6 @@ export class C客户端接口的控制类 {
   //登录
   @SubscribeMessage('登录验证')
   登录(@MessageBody() 数据: any) { return this.功能.登录验证(数据); }
-
-
   
 }
 
