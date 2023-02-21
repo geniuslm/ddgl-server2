@@ -53,7 +53,11 @@ export class 功能 {
   public async 登录验证(数据: any) {
     let 查询结果 = await this.用户集合控制.find({ 用户名: 数据.用户名 })
     if (查询结果.length == 0) return '用户名不存在'
-    if (查询结果[0].密码 == 数据.密码) return '登录成功'
+    if (查询结果[0].密码 == 数据.密码) {
+      let 返回数据:any[]=['登录成功']
+      返回数据.push(查询结果[0])
+      return 返回数据
+    }
     else return '密码错误'
   }
 }
