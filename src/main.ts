@@ -12,7 +12,7 @@ export let 日志 = (文字: any) => {
 async function bootstrap() {
   const app = await NestFactory.create(客户端接口模块)
 
-  await app.listen(3000);
+  await app.listen(45556);
 }
 
 bootstrap();
