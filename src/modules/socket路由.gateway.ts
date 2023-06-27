@@ -35,6 +35,9 @@ export class C客户端接口的控制类 {
   //镜片
   @SubscribeMessage('镜片')
   镜片(@MessageBody() 数据: any) { return this.功能.镜片(数据[0], 数据[1]); }
+  //镜片json
+  @SubscribeMessage('订单json')
+  镜片json(@MessageBody() 数据: any) { return this.功能.订单json(数据); }
   //镜片订单
   @SubscribeMessage('镜片订单')
   镜片订单(@MessageBody() 数据: any) { return this.功能.镜片订单(数据[0], 数据[1]); }
