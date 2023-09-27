@@ -78,7 +78,8 @@ const M订单备份控制模块 = MongooseModule.forFeature([      // 定义数�
             //MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@0.0.0.0:27017', { dbName: 'data' }), 
             //MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@127.0.0.1:27017', { dbName: 'data' }), 
             //MongooseModule.forRoot('mongodb://localhost:27017', { dbName: 'data' }), 
-            MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@localhost:27017/data'),
+
+            MongooseModule.forRoot('mongodb://geniuslmt:genius@localhost:27017/Data?authSource=admin'),
             // 搬瓦工用的
             //MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@localhost:27017/Data?authSource=admin'),
             // 这里是要导出的模块
