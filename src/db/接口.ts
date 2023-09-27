@@ -195,6 +195,7 @@ export class 镜片订单类 extends Document {       // 定义数据模型 之�
     @Prop() 订单类型: string;
     @Prop() 订单号: string;
     @Prop() 镜片收到日: string;
+    @Prop() 对账: string;
 }
 export const 镜片订单Schema = SchemaFactory.createForClass(镜片订单类);  // 用一个订单类 创建一个Schema对象
 
