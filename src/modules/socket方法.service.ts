@@ -44,6 +44,8 @@ export class 功能 {
     if (操作 == "删") { await new this.删除订单集合控制(数据).save(); await this.订单集合控制.deleteOne({ _id: 数据._id }); 日志("订单删" + 数据.订单号); return 数据 }
     if (操作 == "改") { await this.订单集合控制.updateOne({ _id: 数据._id }, { $set: 数据 }); 日志("订单改" + 数据.订单号); return 数据 }
     if (操作 == "获") { return await this.订单集合控制.find() }
+    if (操作 == "获未完成") {return await this.订单集合控制.find({ 订单进度: "未完成" }); }
+    if (操作 == "获非未完成") {return await this.订单集合控制.find({ 订单进度: { $ne: "未完成" } });}
     else return '未定义操作'
   }
   //镜片
