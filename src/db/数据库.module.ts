@@ -72,16 +72,11 @@ const M订单备份控制模块 = MongooseModule.forFeature([      // 定义数�
 @Module({
     imports:
         [
-            // 定义数据库连接 'mongodb://用户名:密码@地址:端口/数据库名?options...') 这是个模块
-            //MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@120.53.103.135:27017', { dbName: 'data' }), 
-            //MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@localhost:27017', { dbName: '订单' }), 
-            //MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@0.0.0.0:27017', { dbName: 'data' }), 
-            //MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@127.0.0.1:27017', { dbName: 'data' }), 
-            //MongooseModule.forRoot('mongodb://localhost:27017', { dbName: 'data' }), 
-
+            // 这是服务器地址
             MongooseModule.forRoot('mongodb://geniuslmt:genius@localhost:27017/Data?authSource=admin'),
-            // 搬瓦工用的
-            //MongooseModule.forRoot('mongodb://geniuslmt:geniuslmt@localhost:27017/Data?authSource=admin'),
+            // MongooseModule.forRoot('mongodb://geniuslmt:genius@38.105.26.244:27017/Data?authSource=admin'),
+            
+ 
             // 这里是要导出的模块
             M订单备份控制模块,M数据库用户集合, M数据库订单集合, M数据库镜片集合,M数据库镜片订单集合, M数据库镜框集合, M数据库镜框订单集合, M数据库删除订单集合
         ],

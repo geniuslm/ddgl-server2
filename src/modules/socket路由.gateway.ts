@@ -29,7 +29,6 @@ export class C客户端接口的控制类 {
   async 订单(@MessageBody() 数据: any, @ConnectedSocket() 客户端: Socket) {
     let 订单回应: any = await this.功能.订单(数据[0], 数据[1])
     if (数据[0] != '获') { 客户端.broadcast.emit('广播', [数据[0], 订单回应]); }
-
     return 订单回应;
   }
   //镜片
